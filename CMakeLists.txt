@@ -7,8 +7,10 @@ find_package(OpenGL REQUIRED)
 add_subdirectory(external)
 
 include_directories(
-    external/glfw-3.1.2/include/GLFW/
     external/glew-1.13.0/include/
+    external/glfw-3.1.2/include/GLFW/
+    external/glm-0.9.7.1/
+    src/
     .
 )
 
@@ -28,7 +30,7 @@ add_definitions(
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-add_executable(main src/main.cpp src/engine/GameEngine.cpp src/engine/GameEngine.h)
+add_executable(main src/main.cpp src/engine/GameEngine.cpp src/engine/GameEngine.h src/render/RenderEngine.cpp src/render/RenderEngine.h src/render/Surface.cpp src/render/Surface.h)
 target_link_libraries(main
     ${ALL_LIBS}
 )
