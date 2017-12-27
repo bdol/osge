@@ -13,6 +13,9 @@ public:
     RenderEngine();
     ~RenderEngine();
 
+    void registerEntity();
+    void deregisterEntity();
+
     int render();
     Surface surface;
 

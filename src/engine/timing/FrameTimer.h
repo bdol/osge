@@ -10,14 +10,10 @@
 class FrameTimer {
 public:
     FrameTimer();
-    FrameTimer(int refreshHz);
+    explicit FrameTimer(int refreshHz);
 
     void start();
     void checkAndWait();
-
-    int getRefreshHz() const;
-
-    void setRefreshHz(int refreshHz);
 
 private:
     int refreshHz;

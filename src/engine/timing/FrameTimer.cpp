@@ -25,14 +25,6 @@ void FrameTimer::start() {
 
 }
 
-int FrameTimer::getRefreshHz() const {
-    return refreshHz;
-}
-
-void FrameTimer::setRefreshHz(int refreshHz) {
-    this->refreshHz = refreshHz;
-}
-
 void FrameTimer::checkAndWait() {
     high_resolution_clock::time_point endTime = high_resolution_clock::now();
     duration<double> diffSeconds = duration_cast<duration<double>>(endTime - startTime);
