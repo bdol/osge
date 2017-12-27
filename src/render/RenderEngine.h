@@ -14,8 +14,6 @@ public:
     ~RenderEngine();
 
     int render();
-
-private:
     Surface surface;
 
 };

@@ -40,12 +40,10 @@ void FrameTimer::checkAndWait() {
     int diffMs = (int)(1000 * diffSeconds.count());
     int leftoverBudget = budgetMs - diffMs;
 
-    std::cout << "Leftover budget is " << leftoverBudget << " ms." << std::endl;
-
     if (leftoverBudget > 0) {
         std::this_thread::sleep_for(milliseconds(leftoverBudget));
-    } else {
-        std::cerr << "Exceeded frame budget by " << leftoverBudget << " ms." << std::endl;
+    } else if (leftoverBudget < 0) {
+        std::cerr << "Exceeded frame budget by " << -1 * leftoverBudget << " ms." << std::endl;
     }
 }
 

@@ -41,8 +41,16 @@ int Surface::init() {
 }
 
 int Surface::render() {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE ) == GLFW_PRESS ||
+            glfwWindowShouldClose(window) != 0) {
+        this->escapeCallback();
+    }
+
     glfwSwapBuffers(this->window);
     glfwPollEvents();
 }
 
-Surface::~Surface() {}
+void Surface::registerGLEscapeCallback(std::function<void()> callback) {
+    this->escapeCallback = callback;
+}
+

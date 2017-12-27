@@ -12,12 +12,12 @@
 class GameEngine {
 public:
     GameEngine();
-    ~GameEngine();
 
     void start();
+    void quit();
 
 private:
-    bool quit;
+    bool shouldQuit;
     RenderEngine renderEngine;
     FrameTimer frameTimer;
 };

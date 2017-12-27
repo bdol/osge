@@ -11,20 +11,23 @@ using namespace std::this_thread;
 using namespace std::chrono;
 
 GameEngine::GameEngine() {
-    quit = false;
+    shouldQuit = false;
+    renderEngine.surface.registerGLEscapeCallback(std::bind(&GameEngine::quit, this));
 }
 
 void GameEngine::start() {
-    while (!quit) {
+    while (!shouldQuit) {
         frameTimer.start();
-
-        std::cout << "Tick " << std::endl;
 
         renderEngine.render();
 
         frameTimer.checkAndWait();
-
     }
+
+    std::cout << "Goodbye!" << std::endl;
 }
 
-GameEngine::~GameEngine() {}
+void GameEngine::quit() {
+    shouldQuit = true;
+}
+
