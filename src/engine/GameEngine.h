@@ -6,6 +6,7 @@
 #define OSGE_GAMEENGINE_H
 
 #include <render/RenderEngine.h>
+#include <engine/timing/FrameTimer.h>
 
 
 class GameEngine {
@@ -18,6 +19,7 @@ public:
 private:
     bool quit;
     RenderEngine renderEngine;
+    FrameTimer frameTimer;
 };
 
 

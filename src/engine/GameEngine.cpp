@@ -15,18 +15,14 @@ GameEngine::GameEngine() {
 }
 
 void GameEngine::start() {
-    int c = 0;
     while (!quit) {
+        frameTimer.start();
 
-        std::cout << "Tick " << c << std::endl;
-
-        if (c > 100) {
-            quit = true;
-        }
+        std::cout << "Tick " << std::endl;
 
         renderEngine.render();
-        sleep_until(system_clock::now() + seconds(1));
-        c++;
+
+        frameTimer.checkAndWait();
 
     }
 }
