@@ -10,13 +10,13 @@
 class Triangle : public Primitive {
 public:
     Triangle();
-    GLfloat* vertexBufferData();
-    int vertexBufferSize();
+//    GLfloat* vertexBufferData();
+//    int vertexBufferSize();
 
 private:
-    GLfloat vertexData[9]{-1.0f, -1.0f, 0.0f,
-                          1.0f, -1.0f, 0.0f,
-                          0.0f, 1.0f, 0.0f};
+//    GLfloat vertexData[9]{-1.0f, -1.0f, 0.0f,
+//                          1.0f, -1.0f, 0.0f,
+//                          0.0f, 1.0f, 0.0f};
 };
 
 

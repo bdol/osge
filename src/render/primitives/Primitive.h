@@ -6,13 +6,11 @@
 #define OSGE_PRIMITIVE_H
 
 
-#include <GL/glew.h>
-
 class Primitive {
 public:
     Primitive();
-    virtual GLfloat* vertexBufferData() = 0;
-    virtual int vertexBufferSize() = 0;
+//    virtual GLfloat* vertexBufferData() = 0;
+//    virtual int vertexBufferSize() = 0;
 };
 
 

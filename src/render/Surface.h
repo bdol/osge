@@ -7,15 +7,17 @@
 
 #include <functional>
 
-#include <GL/glew.h>
-#include <glfw3.h>
-#include <glm/glm.hpp>
+//#include <GL/glew.h>
+//#include <glfw3.h>
+//#include <glm/glm.hpp>
 
-#include <render/primitives/Triangle.h>
+#include <SFML/Graphics.hpp>
+//#include <render/primitives/Triangle.h>
 
 class Surface {
 public:
     Surface();
+    ~Surface();
 
     int init();
     int render();
@@ -23,12 +25,14 @@ public:
     void registerGLEscapeCallback(std::function<void()> callback);
 
 private:
-    GLFWwindow* window;
-    std::function<void()> escapeCallback;
+//    GLFWwindow* window;
+//    std::function<void()> escapeCallback;
+//
+//    Triangle testTriangle;
+//    GLuint vertexBuffer;
+//    GLuint programId;
 
-    Triangle testTriangle;
-    GLuint vertexBuffer;
-    GLuint programId;
+    sf::RenderWindow* window;
 
 };
 

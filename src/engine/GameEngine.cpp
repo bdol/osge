@@ -15,7 +15,6 @@ using namespace std::chrono;
 
 GameEngine::GameEngine() {
     shouldQuit = false;
-    renderEngine.surface.registerGLEscapeCallback(std::bind(&GameEngine::quit, this));
 }
 
 void GameEngine::start() {
