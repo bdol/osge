@@ -11,6 +11,8 @@
 #include <glfw3.h>
 #include <glm/glm.hpp>
 
+#include <render/primitives/Triangle.h>
+
 class Surface {
 public:
     Surface();
@@ -23,6 +25,10 @@ public:
 private:
     GLFWwindow* window;
     std::function<void()> escapeCallback;
+
+    Triangle testTriangle;
+    GLuint vertexBuffer;
+    GLuint programId;
 
 };
 

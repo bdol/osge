@@ -3,9 +3,13 @@
 //
 
 #include "RenderEngine.h"
+#include <iostream>
 
 RenderEngine::RenderEngine() {
-    surface.init();
+    if (surface.init() != 0) {
+        std::cerr << "Error initializing rendering subsystem. Exiting." << std::endl;
+        exit(1);
+    }
 }
 
 int RenderEngine::render() {

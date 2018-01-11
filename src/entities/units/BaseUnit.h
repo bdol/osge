@@ -5,23 +5,13 @@
 #ifndef OSGE_BASEUNIT_H
 #define OSGE_BASEUNIT_H
 
+#include <entities/Entity.h>
 
-class BaseUnit {
+class BaseUnit : public Entity {
 public:
     BaseUnit();
 
-    void draw();
-
-    int getDepthLevel() const;
-    void setDepthLevel(int depthLevel);
-
-    int getID();
-
 private:
-    static int idPool;
-
-    int depthLevel;
-    int id;
 };
 
 
