@@ -14,32 +14,42 @@ using namespace std::this_thread;
 using namespace std::chrono;
 
 GameEngine::GameEngine() {
-    shouldQuit = false;
+  shouldQuit = false;
+
+  renderEngine.init();
+  renderEngine.registerWindowEventCallback(
+    std::bind(&GameEngine::eventCallback, std::ref(*this), std::placeholders::_1)
+  );
 }
 
 void GameEngine::start() {
-    BaseUnit b1;
-    BaseUnit b2;
-    BaseUnit b3;
+  BaseUnit b1;
+  BaseUnit b2;
+  BaseUnit b3;
 
-    Triangle jawn;
+  Triangle jawn;
 
-    std::cout << "B1 id: " << b1.getID() << std::endl;
-    std::cout << "B2 id: " << b2.getID() << std::endl;
-    std::cout << "B3 id: " << b3.getID() << std::endl;
+  std::cout << "B1 id: " << b1.getID() << std::endl;
+  std::cout << "B2 id: " << b2.getID() << std::endl;
+  std::cout << "B3 id: " << b3.getID() << std::endl;
 
-    while (!shouldQuit) {
-        frameTimer.start();
+  while (!shouldQuit) {
+    frameTimer.start();
 
-        renderEngine.render();
+    renderEngine.render();
 
-        frameTimer.checkAndWait();
-    }
+    frameTimer.checkAndWait();
+  }
 
-    std::cout << "Goodbye!" << std::endl;
+  std::cout << "Goodbye!" << std::endl;
 }
 
 void GameEngine::quit() {
-    shouldQuit = true;
+  shouldQuit = true;
 }
 
+void GameEngine::eventCallback(sf::Event event) {
+  if (event.type == sf::Event::EventType::Closed) {
+    quit();
+  }
+}

@@ -10,15 +10,20 @@
 
 class RenderEngine {
 public:
-    RenderEngine();
-    ~RenderEngine();
+  RenderEngine();
+  ~RenderEngine();
 
-    void registerEntity();
-    void deregisterEntity();
+  int init();
+  int render();
 
-    int render();
-    Surface surface;
+  void registerEntity();
+  void deregisterEntity();
 
+  void registerWindowEventCallback(std::function<void(sf::Event)> callback);
+
+private:
+  sf::RenderWindow* window_;
+  std::function<void(sf::Event)> eventCallback_;
 };
 
 

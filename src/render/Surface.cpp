@@ -4,29 +4,34 @@
 
 #include "Surface.h"
 
-#include <iostream>
-
-
 
 Surface::Surface() {}
 
 Surface::~Surface() {
-    if (window) {
-        delete window;
-    }
+  if (window) {
+      delete window;
+  }
 }
 
 int Surface::init() {
-    window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
+  window = new sf::RenderWindow(sf::VideoMode(640, 480), "SFML works!");
 
-    return 0;
+  return 0;
 }
 
 
 int Surface::render() {
-    if (window->isOpen()) {
-        window->clear(sf::Color::Blue);
-        window->display();
+  sf::Event event;
+  if (window->isOpen()) {
+    while(window->pollEvent(event)) {
+        if (event.type == sf::Event::EventType::Closed) {
+            window->close();
+        }
     }
+
+    window->
+        clear(sf::Color::Black);
+    window->display();
+  }
 }
 

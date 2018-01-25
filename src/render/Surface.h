@@ -22,7 +22,7 @@ public:
     int init();
     int render();
 
-    void registerGLEscapeCallback(std::function<void()> callback);
+    void registerWindowCloseCallback(std::function<void()> callback);
 
 private:
 //    GLFWwindow* window;

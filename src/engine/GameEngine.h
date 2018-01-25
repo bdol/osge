@@ -7,19 +7,23 @@
 
 #include <render/RenderEngine.h>
 #include <engine/timing/FrameTimer.h>
+#include <SFML/Graphics.hpp>
 
 
 class GameEngine {
 public:
-    GameEngine();
+  GameEngine();
 
-    void start();
-    void quit();
+  void start();
+  void quit();
 
 private:
-    bool shouldQuit;
-    RenderEngine renderEngine;
-    FrameTimer frameTimer;
+  bool shouldQuit;
+  RenderEngine renderEngine;
+  FrameTimer frameTimer;
+
+  void eventCallback(sf::Event eventType);
+
 };
 
 
