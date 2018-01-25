@@ -5,7 +5,8 @@
 #ifndef OSGE_RENDERENGINE_H
 #define OSGE_RENDERENGINE_H
 
-#include "Surface.h"
+#include <functional>
+#include <SFML/Graphics.hpp>
 
 
 class RenderEngine {
